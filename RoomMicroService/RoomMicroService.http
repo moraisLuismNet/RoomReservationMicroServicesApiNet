@@ -1,0 +1,6 @@
+@RoomMicroService_HostAddress = http://localhost:5207
+
+GET {{RoomMicroService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
