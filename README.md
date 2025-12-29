@@ -405,7 +405,7 @@ SendingEmailsMicroService/
 - CreatedAt (DateTime, required, default DateTime.UtcNow)
 
 <kbd>
-  <img src="img/SendingEmailsDB.png" width="15%" height="15%" alt="SendingEmailsDB.png">
+  <img src="img/SendingEmailsDB.png" width="30%" height="30%" alt="SendingEmailsDB.png">
 </kbd>  
 
 ## UserAndAuthorizationManagementMicroService
@@ -453,7 +453,7 @@ UserAndAuthorizationManagementMicroService/
 - etc.
 
 <kbd>
-  <img src="img/UserAndAuthorizationManagementDB.png" width="15%" height="15%" alt="UserAndAuthorizationManagementDB">
+  <img src="img/UserAndAuthorizationManagementDB.png" width="30%" height="30%" alt="UserAndAuthorizationManagementDB">
 </kbd>  
 
 [DeepWiki moraisLuismNet/RoomReservationMicroServicesApiNet](https://deepwiki.com/moraisLuismNet/RoomReservationMicroServicesApiNet)
