@@ -11,6 +11,7 @@ namespace ReservationsMicroService.Data
 
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<ReservationStatus> ReservationStatuses { get; set; }
+        public DbSet<Room> Rooms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

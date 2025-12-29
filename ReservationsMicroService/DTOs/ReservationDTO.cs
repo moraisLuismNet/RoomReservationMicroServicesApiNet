@@ -6,7 +6,9 @@ namespace ReservationsMicroService.DTOs
         public int StatusId { get; set; }
         public string? Email { get; set; }
         public UserDTO? User { get; set; }
+        public RoomDTO? Room { get; set; }
         public int RoomId { get; set; }
+        public string? RoomNumber { get; set; }
         public DateTime ReservationDate { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }

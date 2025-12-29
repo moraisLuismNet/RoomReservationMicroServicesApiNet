@@ -20,6 +20,12 @@ namespace ReservationsMicroService.Helpers
           FullName = string.Empty
         },
         RoomId = reservation.RoomId,
+        RoomNumber = reservation.Room?.RoomNumber,
+        Room = reservation.Room != null ? new RoomDTO
+        {
+            RoomId = reservation.Room.RoomId,
+            RoomNumber = reservation.Room.RoomNumber
+        } : null,
         ReservationDate = reservation.ReservationDate,
         CheckInDate = reservation.CheckInDate,
         CheckOutDate = reservation.CheckOutDate,

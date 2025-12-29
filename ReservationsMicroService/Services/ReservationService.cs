@@ -106,6 +106,8 @@ namespace ReservationsMicroService.Services
             var room = await _roomServiceClient.GetRoomByIdAsync(createReservationDto.RoomId);
             if (room == null) return new BadRequestObjectResult("Room not found"); // Should be covered by IsRoomAvailable but good for safety
 
+            await _reservationRepository.EnsureRoomExists(room.RoomId, room.RoomNumber);
+
             var status = await _reservationStatusRepository.GetReservationStatusById(1); // 1 = pending
             if (status == null) return new BadRequestObjectResult("Status 'pending' not found");
 
@@ -137,6 +139,8 @@ namespace ReservationsMicroService.Services
                     FullName = user.FullName
                 },
                 RoomId = reservation.RoomId,
+                RoomNumber = room.RoomNumber,
+                Room = room,
                 ReservationDate = reservation.ReservationDate,
                 CheckInDate = reservation.CheckInDate,
                 CheckOutDate = reservation.CheckOutDate,

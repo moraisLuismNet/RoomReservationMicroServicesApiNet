@@ -14,5 +14,6 @@ namespace ReservationsMicroService.Repository
     Task<bool> ReservationExists(int id);
     Task<bool> IsRoomAvailable(int roomId, DateTime checkIn, DateTime checkOut);
     Task<IEnumerable<ReservationDTO>> GetReservationsByRoomId(int roomId);
+    Task EnsureRoomExists(int roomId, string roomNumber);
   }
 }

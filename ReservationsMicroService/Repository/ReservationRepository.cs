@@ -18,6 +18,7 @@ namespace ReservationsMicroService.Repository
     {
       var reservations = await _context.Reservations
           .Include(r => r.Status)
+          .Include(r => r.Room)
           .ToListAsync();
 
       var reservationDtos = reservations.Select(r => new ReservationDTO
@@ -30,6 +31,12 @@ namespace ReservationsMicroService.Repository
           FullName = string.Empty // FullName would be fetched from UserMicroservice in a real scenario
         },
         RoomId = r.RoomId,
+        RoomNumber = r.Room?.RoomNumber,
+        Room = new RoomDTO
+        {
+            RoomId = r.RoomId,
+            RoomNumber = r.Room?.RoomNumber ?? string.Empty
+        },
         ReservationDate = r.ReservationDate,
         CheckInDate = r.CheckInDate,
         CheckOutDate = r.CheckOutDate,
@@ -46,6 +53,7 @@ namespace ReservationsMicroService.Repository
     {
       var reservations = await _context.Reservations
           .Include(r => r.Status)
+          .Include(r => r.Room)
           .Where(r => r.Email == email)
           .ToListAsync();
 
@@ -59,6 +67,12 @@ namespace ReservationsMicroService.Repository
           FullName = string.Empty
         },
         RoomId = r.RoomId,
+        RoomNumber = r.Room?.RoomNumber,
+        Room = new RoomDTO
+        {
+            RoomId = r.RoomId,
+            RoomNumber = r.Room?.RoomNumber ?? string.Empty
+        },
         ReservationDate = r.ReservationDate,
         CheckInDate = r.CheckInDate,
         CheckOutDate = r.CheckOutDate,
@@ -73,7 +87,10 @@ namespace ReservationsMicroService.Repository
 
     public async Task<Reservation?> GetReservationById(int id)
     {
-      return await _context.Reservations.AsNoTracking().FirstOrDefaultAsync(r => r.ReservationId == id);
+      return await _context.Reservations
+          .Include(r => r.Room)
+          .AsNoTracking()
+          .FirstOrDefaultAsync(r => r.ReservationId == id);
     }
 
     public async Task AddReservation(Reservation reservation)
@@ -118,6 +135,7 @@ namespace ReservationsMicroService.Repository
     {
         var reservations = await _context.Reservations
           .Include(r => r.Status)
+          .Include(r => r.Room)
           .Where(r => r.RoomId == roomId && r.StatusId != 5 && r.StatusId != 6) // Exclude cancelled/no-show
           .ToListAsync();
 
@@ -131,6 +149,12 @@ namespace ReservationsMicroService.Repository
                 FullName = string.Empty
             },
             RoomId = r.RoomId,
+            RoomNumber = r.Room?.RoomNumber,
+            Room = new RoomDTO
+            {
+                RoomId = r.RoomId,
+                RoomNumber = r.Room?.RoomNumber ?? string.Empty
+            },
             ReservationDate = r.ReservationDate,
             CheckInDate = r.CheckInDate,
             CheckOutDate = r.CheckOutDate,
@@ -141,6 +165,16 @@ namespace ReservationsMicroService.Repository
         }).ToList();
 
         return reservationDtos;
+    }
+
+    public async Task EnsureRoomExists(int roomId, string roomNumber)
+    {
+        var exists = await _context.Rooms.AnyAsync(r => r.RoomId == roomId);
+        if (!exists)
+        {
+            _context.Rooms.Add(new Room { RoomId = roomId, RoomNumber = roomNumber });
+            await _context.SaveChangesAsync();
+        }
     }
   }
 }

@@ -22,6 +22,9 @@ namespace ReservationsMicroService.Models
         [Column("RoomId")]
         public int RoomId { get; set; }
 
+        [ForeignKey("RoomId")]
+        public virtual Room? Room { get; set; }
+
         public DateTime ReservationDate { get; set; } = DateTime.UtcNow;
 
         [Required]

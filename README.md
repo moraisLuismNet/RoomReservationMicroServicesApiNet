@@ -237,7 +237,9 @@ PaymentMicroService/
 ├── appsettings.json  
 └── Program.cs  
 
-![RoomReservationMicroServicesApiNet](img/PaymentMicroService.png)
+<kbd>
+  <img src="img/PaymentMicroService.png" width="60%" height="60%" alt="PaymentMicroService">
+</kbd>  
 
 ## ReservationsMicroService
 
@@ -262,7 +264,8 @@ ReservationsMicroService/
 ├── Models/  
 │   ├── DatabaseSettings.cs  
 │   ├── Reservation.cs  
-│   └── ReservationStatus.cs  
+│   ├── ReservationStatus.cs  
+│   └── Room.cs  
 ├── Repository/  
 │   ├── IReservationRepository.cs  
 │   ├── IReservationStatusRepository.cs  
@@ -279,7 +282,9 @@ ReservationsMicroService/
 ├── appsettings.json  
 └── Program.cs  
 
-![RoomReservationMicroServicesApiNet](img/ReservationsMicroService.png)
+<kbd>
+  <img src="img/ReservationsMicroService.png" width="60%" height="60%" alt="ReservationsMicroService">
+</kbd>  
 
 ### ReservationsDB
 - **Reservations**: 
@@ -299,7 +304,9 @@ ReservationsMicroService/
 -StatusId(int,PK) 
 - Name (string, required, max 50)
 
-![RoomReservationMicroServicesApiNet](img/ReservationsDB.png)
+<kbd>
+  <img src="img/ReservationsDB.png" width="30%" height="30%" alt="ReservationsDB">
+</kbd>  
 
 ## RoomMicroService
 
@@ -335,7 +342,9 @@ RoomMicroService/
 ├── appsettings.json  
 └── Program.cs  
 
-![RoomReservationMicroServicesApiNet](img/RoomMicroService.png)
+<kbd>
+  <img src="img/RoomMicroService.png" width="60%" height="60%" alt="RoomMicroService">
+</kbd>  
 
 ### RoomDB
 - **Rooms**: 
@@ -352,7 +361,9 @@ RoomMicroService/
 - Description (string, max 500) 
 - Capacity (int, default 2)
 
-![RoomReservationMicroServicesApiNet](img/RoomDB.png)
+<kbd>
+  <img src="img/RoomDB.png" width="30%" height="30%" alt="RoomDB">
+</kbd>  
 
 ## SendingEmailsMicroService
 
@@ -380,7 +391,9 @@ SendingEmailsMicroService/
 ├── appsettings.json  
 └── Program.cs  
 
-![RoomReservationMicroServicesApiNet](img/SendingEmailsMicroService.png)
+<kbd>
+  <img src="img/SendingEmailsMicroService.png" width="60%" height="60%" alt="SendingEmailsMicroService.png">
+</kbd>  
 
 ### SendingEmailsDB
 - **EmailQueues** 
@@ -391,7 +404,9 @@ SendingEmailsMicroService/
 - Status (string, required, default "Pending")
 - CreatedAt (DateTime, required, default DateTime.UtcNow)
 
-![RoomReservationMicroServicesApiNet](img/SendingEmailsDB.png)
+<kbd>
+  <img src="img/SendingEmailsDB.png" width="15%" height="15%" alt="SendingEmailsDB.png">
+</kbd>  
 
 ## UserAndAuthorizationManagementMicroService
 
@@ -425,7 +440,9 @@ UserAndAuthorizationManagementMicroService/
 ├── appsettings.json  
 └── Program.cs  
 
-![RoomReservationMicroServicesApiNet](img/UserAndAuthorizationManagementMicroService.png)
+<kbd>
+  <img src="img/UserAndAuthorizationManagementMicroService.png" width="60%" height="60%" alt="UserAndAuthorizationManagementMicroService">
+</kbd>  
 
 ### UserAndAuthorizationManagementDB
 - **Users**: 
@@ -435,6 +452,8 @@ UserAndAuthorizationManagementMicroService/
 - Role (string, required) 
 - etc.
 
-![RoomReservationMicroServicesApiNet](img/UserAndAuthorizationManagementDB.png)
+<kbd>
+  <img src="img/UserAndAuthorizationManagementDB.png" width="15%" height="15%" alt="UserAndAuthorizationManagementDB">
+</kbd>  
 
 [DeepWiki moraisLuismNet/RoomReservationMicroServicesApiNet](https://deepwiki.com/moraisLuismNet/RoomReservationMicroServicesApiNet)
